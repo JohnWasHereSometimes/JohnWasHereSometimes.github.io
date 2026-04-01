@@ -8,491 +8,138 @@
     :root {
       --bg: #0f172a;
       --surface: #1e293b;
-      --surface-light: #334155;
       --text: #e2e8f0;
       --muted: #94a3b8;
       --accent: #60a5fa;
-      --accent-hover: #93c5fd;
       --border: #475569;
       --max-width: 1000px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
+      margin: 0;
     }
 
     .container {
       width: 90%;
       max-width: var(--max-width);
-      margin: 0 auto;
+      margin: auto;
     }
 
     header {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+      padding: 20px 0;
       border-bottom: 1px solid var(--border);
-      padding: 30px 0;
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(8px);
-      z-index: 100;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    nav h1 {
-      color: white;
-      font-size: 1.8rem;
     }
 
     nav ul {
-      display: flex;
       list-style: none;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav ul li a {
-      font-weight: bold;
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 80px 0 60px;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      color: var(--muted);
-      font-size: 1.1rem;
-    }
-
-    .button-group {
       display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 25px;
+      gap: 20px;
     }
 
-    .btn {
-      display: inline-block;
-      background-color: var(--accent);
-      color: #0f172a;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: var(--accent-hover);
+    nav a {
+      color: var(--text);
       text-decoration: none;
     }
 
-    .btn-outline {
-      background-color: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-
-    .btn-outline:hover {
-      background-color: var(--accent);
-      color: #0f172a;
-    }
-
     section {
-      padding: 60px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 50px 0;
     }
 
-    section h2 {
-      font-size: 2rem;
+    h2 {
       color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    section p {
-      color: var(--muted);
-      margin-bottom: 15px;
-    }
-
-    .skills-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background-color: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: white;
-    }
-
-    .card ul {
-      padding-left: 20px;
-      color: var(--muted);
     }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      margin-top: 25px;
     }
 
-    .project-card h3 {
-      color: white;
-      margin-bottom: 10px;
+    .card {
+      background: var(--surface);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
     }
 
-    .project-card p {
-      margin-bottom: 12px;
-    }
-
-    .contact-info p {
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2rem;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav ul {
-        padding-top: 10px;
-      }
-    }
+    a { color: var(--accent); }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <nav>
-        <h1>John Hay</h1>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#documents">Documents</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container">
+    <nav>
+      <h1>John Hay</h1>
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h2>IT Programming Student Portfolio</h2>
-        <p>
-          Welcome to my portfolio. I am John Hay, an IT Programming student at
-          NSCC / COGS. This site highlights my technical skills, academic projects,
-          and professional development as I continue building experience in software
-          and web development.
-        </p>
-        <div class="button-group">
-          <a class="btn" href="John_Hay_Resume.pdf" target="_blank">Download Resume</a>
-          <a class="btn btn-outline" href="https://github.com/JohnWasHereSometimes" target="_blank">Visit GitHub</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <h2>About Me</h2>
-        <p>
-          This project-based portfolio showcases practical programming and IT skills
-          through hands-on projects, documentation, and continuous learning. My goal
-          is to demonstrate both technical ability and professional growth through
-          coursework and personal development.
-        </p>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <h2>Technical Skills</h2>
-        <div class="skills-list">
-          <div class="card">
-            <h3>Languages</h3>
-            <ul>
-              <li>C#</li>
-              <li>C</li>
-              <li>JavaScript</li>
-              <li>HTML / CSS</li>
-              <li>SQL</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Tools</h3>
-            <ul>
-              <li>Git / GitHub</li>
-              <li>Visual Studio</li>
-              <li>VS Code</li>
-              <li>Windows</li>
-              <li>Linux</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Concepts</h3>
-            <ul>
-              <li>Object-Oriented Programming</li>
-              <li>Event-Driven Programming</li>
-              <li>REST / JSON</li>
-              <li>Debugging</li>
-              <li>Problem Solving</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-          <div class="card project-card">
-            <h3>Java Arcade-Style Game Application</h3>
-            <p>
-              A Java-based arcade-style game demonstrating object-oriented design,
-              collision detection, score tracking, and keyboard input handling.
-            </p>
-            <p><strong>Skills used:</strong> Java, OOP, game logic, user input handling</p>
-          </div>
-
-          <div class="card project-card">
-            <h3>More Projects Coming Soon</h3>
-            <p>
-              Additional projects will be added here as I continue developing my
-              portfolio and completing coursework in software and web development.
-            </p>
-            <p><strong>Focus areas:</strong> web apps, databases, software design</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="documents">
-      <div class="container">
-        <h2>Documents</h2>
-
-        <div class="projects-grid">
-          <div class="card">
-            <h3>Resume</h3>
-            <p>
-              A detailed résumé outlining my education, technical skills, and
-              professional experience.
-            </p>
-            <p>
-              <a href="John_Hay_Resume.pdf" target="_blank">📄 View Resume (PDF)</a>
-            </p>
-          </div>
-
-          <div class="card project-card">
-  <h3>Campus Incident Logger</h3>
-  <p>
-    Developed a campus incident tracking application for reporting, viewing,
-    and updating incidents through a structured workflow. The project supports
-    incident creation, status changes, filtering, and detail tracking, showing
-    full-stack development and practical problem solving for a real-world use case.
-  </p>
-  <p><strong>Skills used:</strong> Node.js, Express, JavaScript, HTML/CSS, REST API design, JSON data handling, testing</p>
-</div>
-
-<div class="card project-card">
-  <h3>Java Blackjack Game</h3>
-  <p>
-    Built a console-based Blackjack game in Java using object-oriented design
-    principles. The project includes core game logic, card and deck management,
-    player hands, dealer actions, and structured project documentation using
-    Maven and GitHub workflows.
-  </p>
-  <p><strong>Skills used:</strong> Java, OOP, Maven, Git/GitHub, unit testing, software structure</p>
-</div>
-
-          <section id="projects">
+<section id="projects">
   <div class="container">
     <h2>Projects</h2>
     <div class="projects-grid">
 
-      <div class="card project-card">
+      <div class="card">
         <h3>SIRE Simulator</h3>
-        <p>
-          Contributed to the development of a collaborative simulation-based
-          application focused on dynamic system behavior and interactive logic.
-          This project involved working with an existing GitHub repository,
-          understanding shared code, and contributing to development tasks.
-        </p>
-        <p><strong>Skills used:</strong> JavaScript, HTML/CSS, GitHub, collaboration, debugging</p>
-        <p>
-          <a href="https://github.com/aelayette/sire-simulator" target="_blank">
-            🔗 View Project on GitHub
-          </a>
-        </p>
+        <p>Collaborative simulation project involving dynamic system behavior and shared GitHub development.</p>
+        <p><a href="https://github.com/aelayette/sire-simulator" target="_blank">View on GitHub</a></p>
       </div>
 
-      <div class="card project-card">
+      <div class="card">
         <h3>NSCC Schedule App</h3>
-        <p>
-          Enhanced a scheduling web application with modal-based course management,
-          dynamic dropdowns, color picker integration, and JSON data retrieval.
-          The project focused on improving usability and managing course data
-          through a responsive interface.
-        </p>
-        <p><strong>Skills used:</strong> JavaScript, HTML, CSS, Bootstrap, JSON, UI development</p>
+        <p>Web app with modals, JSON data handling, and dynamic UI for course scheduling.</p>
       </div>
 
-      <div class="card project-card">
+      <div class="card">
         <h3>Clinical Management System</h3>
-        <p>
-          Developed a Python-based application for managing and organizing clinical
-          information. This project demonstrated problem-solving, structured data
-          handling, and program design using core programming concepts.
-        </p>
-        <p><strong>Skills used:</strong> Python, data handling, program logic, problem solving</p>
+        <p>Python application for managing structured clinical data and workflows.</p>
       </div>
 
-      <div class="card project-card">
+      <div class="card">
         <h3>Gaming Friends Database</h3>
-        <p>
-          Designed and developed a database project focused on storing and organizing
-          information about gaming friends, including relationships between data
-          entities. This project included database planning, ERD creation, and SQL
-          implementation.
-        </p>
-        <p><strong>Skills used:</strong> SQL, ERD design, relational databases, data modeling</p>
+        <p>Relational database with ERD design and SQL implementation.</p>
       </div>
 
-      <div class="card project-card">
+      <div class="card">
         <h3>Campus Incident Logger</h3>
-        <p>
-          Developed a campus incident tracking application for reporting, viewing,
-          and updating incidents through a structured workflow. The project supports
-          incident creation, status changes, filtering, and detail tracking, showing
-          full-stack development and practical problem solving for a real-world use case.
-        </p>
-        <p><strong>Skills used:</strong> Node.js, Express, JavaScript, HTML/CSS, REST API design, JSON data handling, testing</p>
+        <p>Incident tracking system using REST APIs and structured workflows.</p>
       </div>
 
-      <div class="card project-card">
+      <div class="card">
         <h3>Java Blackjack Game</h3>
-        <p>
-          Built a console-based Blackjack game in Java using object-oriented design
-          principles. The project includes core game logic, card and deck management,
-          player hands, dealer actions, and structured project documentation using
-          Maven and GitHub workflows.
-        </p>
-        <p><strong>Skills used:</strong> Java, OOP, Maven, Git/GitHub, unit testing, software structure</p>
+        <p>Console-based card game using Java, OOP, and Maven structure.</p>
       </div>
 
-      <div class="card project-card">
-        <h3>Java Arcade-Style Game Application</h3>
-        <p>
-          Built a Java-based arcade-style game demonstrating object-oriented design,
-          collision detection, score tracking, and keyboard input handling.
-        </p>
-        <p><strong>Skills used:</strong> Java, OOP, game logic, event handling</p>
+      <div class="card">
+        <h3>Java Arcade Game</h3>
+        <p>Arcade-style game with collision detection and scoring logic.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-          <div class="card">
-            <h3>Portfolio Documentation</h3>
-            <p>
-              This document outlines the planning, structure, and development
-              approach behind this project-based programming portfolio.
-            </p>
-            <p>
-              <a href="Draft_Professional_Portfolio_Development.pdf" target="_blank">
-                📄 View Portfolio Development Document (PDF)
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <div class="contact-info">
-          <p><strong>Email:</strong> <a href="mailto:johnbrhay@gmail.com">johnbrhay@gmail.com</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/JohnWasHereSometimes" target="_blank">github.com/JohnWasHereSometimes</a></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 John Hay. All rights reserved.</p>
-    </div>
-  </footer>
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>Email: johnbrhay@gmail.com</p>
+    <p><a href="https://github.com/JohnWasHereSometimes">GitHub</a></p>
+  </div>
+</section>
 
 </body>
 </html>
