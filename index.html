@@ -8,138 +8,473 @@
     :root {
       --bg: #0f172a;
       --surface: #1e293b;
+      --surface-2: #334155;
       --text: #e2e8f0;
       --muted: #94a3b8;
       --accent: #60a5fa;
+      --accent-hover: #93c5fd;
       --border: #475569;
-      --max-width: 1000px;
+      --max-width: 1100px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, sans-serif;
-      background-color: var(--bg);
+      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
       color: var(--text);
-      margin: 0;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
     }
 
     .container {
-      width: 90%;
-      max-width: var(--max-width);
-      margin: auto;
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
     }
 
     header {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffffff;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 22px;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: var(--text);
-      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 90px 0 60px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 3.6rem);
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: #0f172a;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent-hover);
     }
 
     section {
-      padding: 50px 0;
+      padding: 55px 0;
     }
 
-    h2 {
+    .section-title {
+      font-size: 2rem;
       color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .about-box,
+    .card {
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-box {
+      padding: 24px;
+    }
+
+    .projects-grid,
+    .docs-grid,
+    .skills-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    }
+
+    .docs-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
     .card {
-      background: var(--surface);
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
+      padding: 22px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    a { color: var(--accent); }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(96, 165, 250, 0.12);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      color: #bfdbfe;
+      font-size: 0.88rem;
+    }
+
+    .skills-list {
+      list-style: none;
+    }
+
+    .skills-list li {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .contact-card {
+      padding: 24px;
+    }
+
+    .contact-card p {
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 720px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+    }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <nav>
-      <h1>John Hay</h1>
-      <ul>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<section id="projects">
-  <div class="container">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-
-      <div class="card">
-        <h3>SIRE Simulator</h3>
-        <p>Collaborative simulation project involving dynamic system behavior and shared GitHub development.</p>
-        <p><a href="https://github.com/aelayette/sire-simulator" target="_blank">View on GitHub</a></p>
-      </div>
-
-      <div class="card">
-        <h3>NSCC Schedule App</h3>
-        <p>Web app with modals, JSON data handling, and dynamic UI for course scheduling.</p>
-      </div>
-
-      <div class="card">
-        <h3>Clinical Management System</h3>
-        <p>Python application for managing structured clinical data and workflows.</p>
-      </div>
-
-      <div class="card">
-        <h3>Gaming Friends Database</h3>
-        <p>Relational database with ERD design and SQL implementation.</p>
-      </div>
-
-      <div class="card">
-        <h3>Campus Incident Logger</h3>
-        <p>Incident tracking system using REST APIs and structured workflows.</p>
-      </div>
-
-      <div class="card">
-        <h3>Java Blackjack Game</h3>
-        <p>Console-based card game using Java, OOP, and Maven structure.</p>
-      </div>
-
-      <div class="card">
-        <h3>Java Arcade Game</h3>
-        <p>Arcade-style game with collision detection and scoring logic.</p>
-      </div>
-
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">John Hay</div>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#documents">Documents</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <p>Email: johnbrhay@gmail.com</p>
-    <p><a href="https://github.com/JohnWasHereSometimes">GitHub</a></p>
-  </div>
-</section>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>IT Programming Portfolio</h1>
+        <p>
+          I am John Hay, an IT Programming student at NSCC / COGS. This portfolio highlights my work in software development, web applications, databases, and collaborative projects built through coursework and hands-on practice.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="John_Hay_Resume.pdf" target="_blank">Download Resume</a>
+          <a class="btn btn-secondary" href="https://github.com/JohnWasHereSometimes" target="_blank">Visit GitHub</a>
+        </div>
+      </div>
+    </section>
 
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-box">
+          <p>
+            This portfolio showcases practical programming and IT skills through academic work, technical documentation, and project-based learning. My experience includes object-oriented programming, user interface development, database design, API-based applications, and collaborative development using Git and GitHub.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-intro">A summary of the core languages, tools, and development concepts used throughout my projects.</p>
+        <div class="skills-grid">
+          <div class="card">
+            <h3>Languages</h3>
+            <ul class="skills-list">
+              <li>C#</li>
+              <li>C</li>
+              <li>Java</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>HTML / CSS</li>
+              <li>SQL</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Tools</h3>
+            <ul class="skills-list">
+              <li>Git / GitHub</li>
+              <li>Visual Studio</li>
+              <li>VS Code</li>
+              <li>Maven</li>
+              <li>Bootstrap</li>
+              <li>JSON Server</li>
+              <li>Windows / Linux</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Concepts</h3>
+            <ul class="skills-list">
+              <li>Object-Oriented Programming</li>
+              <li>Event-Driven Programming</li>
+              <li>REST / JSON</li>
+              <li>Relational Database Design</li>
+              <li>Debugging and Testing</li>
+              <li>Responsive Interface Design</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-intro">A selection of projects that reflect my experience with programming, systems design, web development, and collaborative software work.</p>
+        <div class="projects-grid">
+          <article class="card">
+            <h3>SIRE Simulator</h3>
+            <p>
+              Contributed to a collaborative simulation-based application focused on dynamic system behavior, shared code management, and interactive logic.
+            </p>
+            <div class="tag-list">
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Collaboration</span>
+            </div>
+            <p style="margin-top:14px;"><a href="https://github.com/aelayette/sire-simulator" target="_blank">View Project</a></p>
+          </article>
+
+          <article class="card">
+            <h3>NSCC Schedule App</h3>
+            <p>
+              Improved a scheduling web app by adding modal-based course management, dynamic dropdowns, color selection, and JSON-driven interface updates.
+            </p>
+            <div class="tag-list">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">JSON</span>
+              <span class="tag">UI Development</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Clinical Management System</h3>
+            <p>
+              Built a Python-based application for organizing structured clinical data and supporting workflow-based information management.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Program Logic</span>
+              <span class="tag">Data Handling</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Gaming Friends Database</h3>
+            <p>
+              Designed a relational database project that included data modeling, ERD creation, and SQL implementation for structured record management.
+            </p>
+            <div class="tag-list">
+              <span class="tag">SQL</span>
+              <span class="tag">ERD Design</span>
+              <span class="tag">Databases</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Campus Incident Logger</h3>
+            <p>
+              Developed an incident tracking application for reporting, reviewing, and updating campus-related incidents through a structured workflow.
+            </p>
+            <div class="tag-list">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">REST API</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Java Blackjack Game</h3>
+            <p>
+              Created a console-based Blackjack game using Java and object-oriented design, including deck management, player actions, and game flow logic.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Maven</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Java Arcade Game</h3>
+            <p>
+              Built an arcade-style game featuring score tracking, player interaction, collision detection, and structured event handling.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">Game Logic</span>
+              <span class="tag">Event Handling</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="documents">
+      <div class="container">
+        <h2 class="section-title">Documents</h2>
+        <p class="section-intro">Supporting documents related to my professional development and portfolio work.</p>
+        <div class="docs-grid">
+          <div class="card">
+            <h3>Resume</h3>
+            <p>A detailed résumé outlining my education, technical skills, and project experience.</p>
+            <p><a href="John_Hay_Resume.pdf" target="_blank">Open Resume PDF</a></p>
+          </div>
+          <div class="card">
+            <h3>Portfolio Documentation</h3>
+            <p>A planning document outlining the structure, purpose, and development approach behind this portfolio.</p>
+            <p><a href="Draft_Professional_Portfolio_Development.pdf" target="_blank">Open Portfolio Document</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="card contact-card">
+          <p><strong>Email:</strong> <a href="mailto:johnbrhay@gmail.com">johnbrhay@gmail.com</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/JohnWasHereSometimes" target="_blank">github.com/JohnWasHereSometimes</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 John Hay. Built for GitHub Pages.</p>
+    </div>
+  </footer>
 </body>
 </html>
