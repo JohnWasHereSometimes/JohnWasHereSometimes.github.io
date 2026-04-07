@@ -6,16 +6,30 @@
   <title>John Hay | IT Portfolio</title>
   <style>
     :root {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --surface-2: #334155;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --accent: #60a5fa;
-      --accent-hover: #93c5fd;
-      --border: #475569;
-      --max-width: 1100px;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      --bg: #0b1020;
+      --bg-soft: #11182d;
+      --surface: rgba(17, 24, 45, 0.72);
+      --surface-strong: rgba(30, 41, 59, 0.92);
+      --surface-hover: rgba(37, 51, 78, 0.95);
+
+      --text: #e5eefc;
+      --muted: #9fb0cc;
+
+      --accent: #7c3aed;
+      --accent-2: #06b6d4;
+      --accent-3: #38bdf8;
+
+      --border: rgba(148, 163, 184, 0.14);
+      --border-strong: rgba(125, 211, 252, 0.25);
+
+      --gradient-main: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+      --gradient-soft: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(6, 182, 212, 0.12));
+
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.22);
+
+      --max-width: 1150px;
+      --radius: 18px;
     }
 
     * {
@@ -29,19 +43,23 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.14), transparent 30%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.14), transparent 28%),
+        linear-gradient(180deg, #0b1020 0%, #0f172a 55%, #0b1120 100%);
     }
 
     a {
-      color: var(--accent);
+      color: var(--accent-3);
       text-decoration: none;
+      transition: 0.2s ease;
     }
 
     a:hover {
-      color: var(--accent-hover);
+      color: #c4b5fd;
     }
 
     .container {
@@ -53,9 +71,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(10px);
-      background: rgba(15, 23, 42, 0.9);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(11, 16, 32, 0.72);
+      border-bottom: 1px solid var(--border);
     }
 
     nav {
@@ -67,9 +86,12 @@
     }
 
     .brand {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #ffffff;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     nav ul {
@@ -82,24 +104,56 @@
     nav a {
       color: var(--text);
       font-weight: 600;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gradient-main);
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .hero {
-      padding: 90px 0 60px;
+      padding: 110px 0 80px;
       text-align: center;
+      position: relative;
+    }
+
+    .hero-label {
+      margin-bottom: 14px;
+      color: #c4b5fd;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.82rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.3rem, 5vw, 3.6rem);
-      color: #ffffff;
-      margin-bottom: 12px;
+      font-size: clamp(2.7rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 45%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
       max-width: 760px;
       margin: 0 auto;
       color: var(--muted);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
     }
 
     .hero-actions {
@@ -107,46 +161,59 @@
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 12px;
       font-weight: 700;
-      transition: 0.2s ease;
+      transition: all 0.22s ease;
+      border: 1px solid transparent;
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #0f172a;
+      background: var(--gradient-main);
+      color: white;
+      box-shadow: 0 12px 28px rgba(124, 58, 237, 0.28);
     }
 
     .btn-primary:hover {
-      background: var(--accent-hover);
-      color: #0f172a;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(6, 182, 212, 0.24);
+      color: white;
     }
 
     .btn-secondary {
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      border-color: var(--border-strong);
       color: var(--text);
-      background: transparent;
     }
 
     .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent-hover);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(196, 181, 253, 0.4);
+      color: white;
+      transform: translateY(-2px);
     }
 
     section {
-      padding: 55px 0;
+      padding: 64px 0;
+    }
+
+    section + section {
+      border-top: 1px solid rgba(148, 163, 184, 0.08);
     }
 
     .section-title {
       font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
     }
 
     .section-intro {
@@ -157,14 +224,19 @@
 
     .about-box,
     .card {
-      background: rgba(30, 41, 59, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
+      background: var(--surface);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
     }
 
     .about-box {
-      padding: 24px;
+      padding: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        var(--surface);
     }
 
     .projects-grid,
@@ -187,19 +259,22 @@
     }
 
     .card {
-      padding: 22px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      padding: 24px;
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
+      transform: translateY(-6px);
+      background: var(--surface-hover);
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-lg);
     }
 
     .card h3 {
       color: #ffffff;
       margin-bottom: 10px;
-      font-size: 1.15rem;
+      font-size: 1.16rem;
+      font-weight: 700;
     }
 
     .card p {
@@ -215,12 +290,13 @@
     }
 
     .tag {
-      padding: 6px 10px;
+      padding: 6px 11px;
       border-radius: 999px;
-      background: rgba(96, 165, 250, 0.12);
-      border: 1px solid rgba(96, 165, 250, 0.25);
-      color: #bfdbfe;
-      font-size: 0.88rem;
+      background: rgba(124, 58, 237, 0.14);
+      border: 1px solid rgba(6, 182, 212, 0.22);
+      color: #c4b5fd;
+      font-size: 0.84rem;
+      font-weight: 600;
     }
 
     .skills-list {
@@ -229,23 +305,36 @@
 
     .skills-list li {
       color: var(--muted);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .skills-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
     }
 
     .contact-card {
-      padding: 24px;
+      padding: 28px;
     }
 
     .contact-card p {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       color: var(--muted);
     }
 
     footer {
-      padding: 28px 0 40px;
+      padding: 30px 0 44px;
       text-align: center;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
     @media (max-width: 720px) {
@@ -255,7 +344,7 @@
       }
 
       .hero {
-        padding-top: 70px;
+        padding-top: 80px;
       }
     }
   </style>
@@ -269,7 +358,8 @@
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#documents">Documents</a></li>
+          <li><a href="#documents">Resume</a></li>
+          <li><a href="#reflection">Reflection</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -279,7 +369,8 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>IT Programming Portfolio</h1>
+        <p class="hero-label">NSCC / COGS • IT Programming Student</p>
+        <h1>Building practical software, web, and IT solutions.</h1>
         <p>
           I am John Hay, an IT Programming student at NSCC / COGS with experience in software development, web development, database design, and collaborative programming projects. This portfolio highlights academic work, hands-on technical projects, and professional growth as I prepare for entry-level IT and software roles.
         </p>
@@ -295,7 +386,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-box">
           <p>
-            This portfolio showcases practical programming and IT skills through academic work, technical documentation, and project-based learning. It follows the project-based structure outlined in my portfolio development plan, with sections for skills, projects, documentation, résumé, and contact information. My work includes object-oriented programming, user interface development, database design, API-based applications, and collaborative development using Git and GitHub.
+            This portfolio showcases practical programming and IT skills through academic work, technical documentation, and project-based learning. It includes sections for skills, projects, résumé, reflection, and contact information. My work includes object-oriented programming, user interface development, database design, API-based applications, and collaborative development using Git and GitHub.
           </p>
         </div>
       </div>
@@ -304,7 +395,9 @@
     <section id="skills">
       <div class="container">
         <h2 class="section-title">Technical Skills</h2>
-        <p class="section-intro">A summary of the core languages, tools, and development concepts used throughout my projects.</p>
+        <p class="section-intro">
+          A summary of the core languages, tools, and development concepts used throughout my academic and personal projects.
+        </p>
         <div class="skills-grid">
           <div class="card">
             <h3>Languages</h3>
@@ -319,6 +412,7 @@
               <li>SQL</li>
             </ul>
           </div>
+
           <div class="card">
             <h3>Tools</h3>
             <ul class="skills-list">
@@ -332,6 +426,7 @@
               <li>GitHub Pages</li>
             </ul>
           </div>
+
           <div class="card">
             <h3>Concepts</h3>
             <ul class="skills-list">
@@ -351,7 +446,10 @@
     <section id="projects">
       <div class="container">
         <h2 class="section-title">Projects</h2>
-        <p class="section-intro">A selection of projects that reflect my experience with programming, systems design, web development, and collaborative software work.</p>
+        <p class="section-intro">
+          A selection of projects that reflect my experience with programming, systems design, web development, and collaborative software work.
+        </p>
+
         <div class="projects-grid">
           <article class="card">
             <h3>SIRE Simulator</h3>
@@ -364,7 +462,9 @@
               <span class="tag">GitHub</span>
               <span class="tag">Collaboration</span>
             </div>
-            <p style="margin-top:14px;"><a href="https://github.com/aelayette/sire-simulator" target="_blank">View Project</a></p>
+            <p style="margin-top:14px;">
+              <a href="https://github.com/aelayette/sire-simulator" target="_blank">View Project</a>
+            </p>
           </article>
 
           <article class="card">
@@ -447,11 +547,15 @@
     <section id="documents">
       <div class="container">
         <h2 class="section-title">Resume</h2>
-        <p class="section-intro">Download my résumé outlining education, technical skills, and experience.</p>
+        <p class="section-intro">
+          Download my résumé outlining education, technical skills, work experience, certifications, and projects.
+        </p>
         <div class="docs-grid">
           <div class="card">
             <h3>John Hay Resume</h3>
-            <p>A detailed résumé including education, technical skills, work experience, certifications, and projects.</p>
+            <p>
+              A detailed résumé including education, technical skills, work experience, certifications, and project experience.
+            </p>
             <p><a href="John_Hay_Resume.pdf" target="_blank">Open Resume PDF</a></p>
           </div>
         </div>
@@ -459,28 +563,23 @@
     </section>
 
     <section id="reflection">
-  <div class="container">
-    <h2 class="section-title">Reflection</h2>
-    <p>
-      Developing this portfolio allowed me to strengthen my programming,
-      debugging, and problem-solving skills across multiple technologies.
-      I progressed from foundational programming concepts to building
-      full applications involving user interfaces, databases, and
-      collaborative development.
-    </p>
-    <p>
-      One of the most valuable experiences was working on collaborative
-      projects such as the SIRE Simulator, where I had to understand and
-      contribute to an existing codebase. This improved my ability to work
-      in a team environment and use version control effectively.
-    </p>
-    <p>
-      Moving forward, I plan to continue developing full-stack applications,
-      improve my software design skills, and prepare for entry-level roles
-      in IT and software development.
-    </p>
-  </div>
-</section>
+      <div class="container">
+        <h2 class="section-title">Reflection</h2>
+        <div class="about-box">
+          <p>
+            Developing this portfolio allowed me to strengthen my programming, debugging, and problem-solving skills across multiple technologies. I progressed from foundational programming concepts to building full applications involving user interfaces, databases, and collaborative development.
+          </p>
+          <br />
+          <p>
+            One of the most valuable experiences was working on collaborative projects such as the SIRE Simulator, where I had to understand and contribute to an existing codebase. This improved my ability to work in a team environment and use version control effectively.
+          </p>
+          <br />
+          <p>
+            Moving forward, I plan to continue developing full-stack applications, improve my software design skills, and prepare for entry-level roles in IT and software development.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section id="contact">
       <div class="container">
